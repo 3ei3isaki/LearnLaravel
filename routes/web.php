@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/headers', function (Request $request) {
+    print_r($request->cookie());
+    return response("")
+        ->cookie("test_cookie", "test", -1);
+});
+
+Route::get('/news', 'NewsController@index')->name('news');
 
 Route::get('/', function () {
     return view('welcome');

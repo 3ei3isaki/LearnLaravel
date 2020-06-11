@@ -21,8 +21,14 @@ Route::get('/headers', function (Request $request) {
         ->cookie("test_cookie", "test", -1);
 });
 
-Route::get('/news', 'NewsController@index')->name('news');
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'news'], function () {
+    Route::get('/{page?}', 'NewsController@index')
+        ->name('news')
+        ->where('page', '[0-9]+');
+
+    Route::get('/category/{categoryId?}/{page?}', 'NewsController@category')
+        ->name('categoryNews')
+        ->where(['categoryId' => '[0-9]+', 'page' => '[0-9]+']);
 });

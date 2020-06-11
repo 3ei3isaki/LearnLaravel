@@ -2,6 +2,5 @@
 {{-- <ol>
      @foreach ($itemData as $item)
           <li>{{ $item['name'] }}</li>
-     @endforeach 
+@endforeach
 </ol> --}}
-

@@ -20,4 +20,6 @@
                @include('components.home.medium-item')
           </div>
      </div>
+
+     <div class="row justify-content-center w-100">{!! $rawDatas->links() !!}</div>
 </div>

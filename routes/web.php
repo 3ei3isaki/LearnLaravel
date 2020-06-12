@@ -28,7 +28,7 @@ Route::group(['prefix' => 'news'], function () {
         ->name('news')
         ->where('page', '[0-9]+');
 
-    Route::get('/category/{categoryId?}/{page?}', 'NewsController@category')
+    Route::get('/category/{categoryId?}', 'NewsController@category')
         ->name('categoryNews')
-        ->where(['categoryId' => '[0-9]+', 'page' => '[0-9]+']);
+        ->where(['categoryId' => '[0-9]+']);
 });

@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    public function index($page = 1)
+    public function index()
     {
-        $newsRawDatas = News::all()->take(20);
+        $newsRawDatas = News::paginate(20);
 
         $newsDatas = [];
 
@@ -21,13 +21,15 @@ class NewsController extends Controller
 
         return view('news', [
             'cate_name' => "tổng hợp",
+            'rawDatas' => $newsRawDatas,
             'news_data' => $newsDatas
         ]);
     }
 
-    public function category($cateId = 1, $page = 1)
+    public function category($cateId = 1)
     {
         return view('news', [
+            'rawDatas' => Categorys::find($cateId)->paginate(20),
             'cate_name' => Categorys::find($cateId)['name'],
             'news_data' => Categorys::find($cateId)->news
         ]);

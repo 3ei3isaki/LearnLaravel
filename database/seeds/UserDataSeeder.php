@@ -14,14 +14,9 @@ class UserDataSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'name' => 'Mei',
-                'email' => 'mei.misaki@outlook.com.vn',
-                'password' => '123456789'
-            ],
-            [
-                'name' => 'Mei1',
-                'email' => 'mei.misaki@outlook.com.vn',
-                'password' => '123456789'
+                'name' => 'admin',
+                'email' => 'admin@ad.com',
+                'password' => password_hash("123456789", PASSWORD_BCRYPT)
             ]
         ]);
     }

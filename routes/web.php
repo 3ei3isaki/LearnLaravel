@@ -15,12 +15,6 @@ use Illuminate\Http\Response;
 |
 */
 
-Route::get('/headers', function (Request $request) {
-    print_r($request->cookie());
-    return response("")
-        ->cookie("test_cookie", "test", -1);
-});
-
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'news'], function () {
@@ -31,4 +25,12 @@ Route::group(['prefix' => 'news'], function () {
     Route::get('/category/{categoryId?}', 'NewsController@category')
         ->name('categoryNews')
         ->where(['categoryId' => '[0-9]+']);
+});
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::get('/login', 'AuthController@login')->name('login');
+
+    Route::post('/authenticate', 'AuthController@authenticate');
+
+    Route::get('/logout', 'AuthController@logout')->name('logout');
 });

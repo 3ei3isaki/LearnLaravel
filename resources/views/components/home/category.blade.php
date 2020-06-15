@@ -6,7 +6,7 @@
                <hr>
           </div>
           @foreach ($categorys_data as $item)
-          <div class="col-lg-3 col-sm-6 my-1 mx-auto">
+          <div class="col-lg-3 col-sm-6 my-1">
                <a href="news/category/{{ $item['id'] }}" class="btn btn-light w-100">
                     <h5 class="ms-white-space-nowrap d-inline">{{ $item['name'] }}</h5>
                </a>

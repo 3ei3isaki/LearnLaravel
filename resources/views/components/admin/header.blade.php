@@ -6,19 +6,19 @@
      <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                    <a class="nav-link" href="/LearnLaravel/public/admin">
+                    <a class="nav-link" href="/admin">
                          <i class="fa fa-fw fa-tachometer-alt"></i>
                          <span class="nav-link-text">Dashboard</span>
                     </a>
                </li>
                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                    <a class="nav-link" href="/LearnLaravel/public/admin/news">
+                    <a class="nav-link" href="/admin/news">
                          <i class="fa fa-fw fa-newspaper"></i>
                          <span class="nav-link-text">News</span>
                     </a>
                </li>
                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                    <a class="nav-link" href="/LearnLaravel/public/admin/categorys">
+                    <a class="nav-link" href="/admin/categorys">
                          <i class="fa fa-fw fa-sitemap"></i>
                          <span class="nav-link-text">Category</span>
                     </a>
@@ -33,7 +33,7 @@
           </ul>
           <ul class="navbar-nav ml-auto">
                <li class="nav-item">
-                    <a class="nav-link" href="/LearnLaravel/public/auth/logout">Hi! <span class="text-success">{{ Auth::user()['name'] }}</span> | Đăng xuất</a>
+                    <a class="nav-link" href="/auth/logout">Hi! <span class="text-success">{{ Auth::user()['name'] }}</span> | Đăng xuất</a>
                </li>
           </ul>
      </div>

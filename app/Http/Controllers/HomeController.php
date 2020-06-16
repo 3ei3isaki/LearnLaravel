@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $newsRawDatas = News::all()->sortByDesc('id');
+        $newsRawDatas = News::all()->sortByDesc('id')->take(20);
         $categorysData = Categorys::all();
 
         $newsDatas = [];

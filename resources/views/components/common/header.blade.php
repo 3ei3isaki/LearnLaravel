@@ -18,7 +18,7 @@
     </nav>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="/LearnLaravel/public">
+            <a class="navbar-brand" href="/">
                 <h2 class="py-0 mb-0 font-weight-medium"><img src="{{ asset('image/src/Logo.png') }}" alt="Logo" height="30px"> <span style="color: #29878b;">M</span>ei <span style="color: #29878b;">News</span></h2>
                 <h6 class="py-0 font-weight-light">Cập nhật tin tức mới nhanh chóng</h6>
             </a>
@@ -34,7 +34,7 @@
                         <a class="nav-link btn btn-light mx-1" href="auth/login">Đăng nhập</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-light mx-1" href="/LearnLaravel/public/register">Đăng ký</a>
+                        <a class="nav-link btn btn-light mx-1" href="/register">Đăng ký</a>
                     </li>
                     @else
                     <li class="nav-item">
@@ -50,10 +50,10 @@
         <div class="container">
             <ul class="navbar-nav mr-auto">
                 <li class=" nav-item">
-                    <a class="nav-link" href="/LearnLaravel/public">Trang chủ</a>
+                    <a class="nav-link" href="/">Trang chủ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/LearnLaravel/public/news">Tin tổng hợp</a>
+                    <a class="nav-link" href="/news">Tin tổng hợp</a>
                 </li>
             </ul>
         </div>

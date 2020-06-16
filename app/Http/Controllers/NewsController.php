@@ -10,7 +10,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $newsRawDatas = News::orderBy('id', 'DESC')->paginate(20);
+        $newsRawDatas = News::orderBy('id', 'DESC')->paginate(15);
         $newsRawDatas;
 
         $newsDatas = [];
@@ -30,9 +30,9 @@ class NewsController extends Controller
     public function category($cateId = 1)
     {
         return view('news', [
-            'rawDatas' => Categorys::find($cateId)->paginate(20),
+            'rawDatas' => Categorys::find($cateId)->paginate(15),
             'cate_name' => Categorys::find($cateId)['name'],
-            'news_data' => Categorys::find($cateId)->news
+            'news_data' => News::where("cate_id", $cateId)->paginate(15)
         ]);
     }
 }

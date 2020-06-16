@@ -20,6 +20,7 @@ class AdminCategorysController extends Controller
     public function getAdd()
     {
         return view('admin', [
+            'err' => null,
             'page' => 'add_categorys'
         ]);
     }

@@ -1,7 +1,7 @@
 function deleteNewsItem(id) {
      let req = {
           method: "delete",
-          url: `news/delete/${id}`,
+          url: `/admin/news/delete/${id}`,
      }
 
      axios(req).then(res => location.reload());
@@ -10,7 +10,7 @@ function deleteNewsItem(id) {
 function deleteCategorysItem(id) {
      let req = {
           method: "delete",
-          url: `/LearnLaravel/public/admin/categorys/delete/${id}`,
+          url: `/admin/categorys/delete/${id}`,
      }
 
      axios(req).then(res => location.reload());

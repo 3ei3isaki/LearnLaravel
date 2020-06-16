@@ -93,3 +93,10 @@ Route::prefix('admin')->middleware('authRequire')->group(function () {
             ->where(['id' => '[0-9]+']);
     });
 });
+
+
+Route::group(['prefix' => 'register'], function () {
+    Route::get('/', 'RegisterController@index')->name('registerView');
+
+    Route::post('/', 'RegisterController@register')->name('register');
+});

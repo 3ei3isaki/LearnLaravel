@@ -34,7 +34,7 @@
                         <a class="nav-link btn btn-light mx-1" href="auth/login">Đăng nhập</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-light mx-1" href="#">Đăng ký</a>
+                        <a class="nav-link btn btn-light mx-1" href="/LearnLaravel/public/register">Đăng ký</a>
                     </li>
                     @else
                     <li class="nav-item">

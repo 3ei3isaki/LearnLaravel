@@ -23,6 +23,12 @@
                          @case ('categorys')
                          @include('components.admin.table-categorys')
                          @break
+                         @case ('add_categorys')
+                         @include('components.admin.add-categorys')
+                         @break
+                         @case ('edit_categorys')
+                         @include('components.admin.edit-categorys')
+                         @break
                          @endswitch
                     </div>
                </div>

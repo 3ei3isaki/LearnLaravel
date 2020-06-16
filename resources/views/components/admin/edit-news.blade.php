@@ -1,5 +1,9 @@
 <h1 class="display-4 text-center text-primary">Sửa sản phẩm</h1>
-
+@if ($err != null)
+<div class="alert alert-danger" role="alert">
+     {{ $err }}
+</div>
+@endif
 <form action="{{ $news_item['id'] }}" method="post" class="w-100 py-4">
      @csrf
      @method ('PUT')

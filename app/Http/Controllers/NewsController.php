@@ -10,7 +10,8 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $newsRawDatas = News::paginate(20);
+        $newsRawDatas = News::orderBy('id', 'DESC')->paginate(20);
+        $newsRawDatas;
 
         $newsDatas = [];
 

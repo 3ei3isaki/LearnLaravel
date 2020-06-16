@@ -33,14 +33,15 @@
                     <li class="nav-item">
                         <a class="nav-link btn btn-light mx-1" href="auth/login">Đăng nhập</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-light mx-1" href="#">Đăng ký</a>
+                    </li>
                     @else
                     <li class="nav-item">
                         <a class="nav-link btn btn-light mx-1" href="auth/logout">Hi! <span class="text-success">{{ Auth::user()['name'] }}</span> | Đăng xuất</a>
                     </li>
                     @endif
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-light mx-1" href="#">Đăng ký</a>
-                    </li>
+
                 </ul>
             </div>
         </div>

@@ -24,7 +24,7 @@
                <td style="vertical-align: middle; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">{{ $item['image_url'] }}</td>
                <td>
                     <a href=" news/edit/{{ $item['id'] }}" class="btn btn-success">Sửa</a>
-                    <button onclick="deleteItem(`{{ $item['id'] }}`)" class="btn btn-danger">Xóa</button>
+                    <button onclick="deletNewsItem(`{{ $item['id'] }}`)" class="btn btn-danger">Xóa</button>
                </td>
           </tr>
           @endforeach

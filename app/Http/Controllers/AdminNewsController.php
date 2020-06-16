@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Categorys;
 use App\News;
+use Session;
 use Illuminate\Http\Request;
 
 class AdminNewsController extends Controller
 {
     public function index()
     {
-        $data = News::paginate(20);
+        $data = News::orderBy('created_at', 'DESC')->paginate(20);
 
         return view('admin', ['page' => 'news', 'data' => $data]);
     }
@@ -46,14 +47,17 @@ class AdminNewsController extends Controller
         return view('admin', [
             'page' => 'edit_news',
             'category_data' => $CategoryData,
+            'err' => Session('err'),
             'news_item' => $newsItem
         ]);
     }
 
-    public function postEdit(Request $req, $id)
+    public function putEdit(Request $req, $id)
     {
         if (!$req->filled(['title', 'description', 'info', 'cate_id', 'url', 'image_url'])) {
-            return redirect()->route('adminNewsGetEdit')->withInput();
+            return redirect()->route('adminNewsGetEdit', ['id' => $id])->withInput()->with([
+                'err' => 'Sửa thông tin thất bại! Vui lòng điền lại đầy đủ thông tin'
+            ]);
         }
 
         $news = News::find($id);

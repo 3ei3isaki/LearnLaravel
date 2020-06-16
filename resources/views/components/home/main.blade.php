@@ -19,7 +19,9 @@
           <div class="col-lg-12 my-1 mx-auto pb-4">
                @include('components.home.medium-item')
           </div>
-     </div>
 
-     <div class="row justify-content-center w-100">{!! $rawDatas->links() !!}</div>
+          <a href="news" class="row justify-content-center w-100">
+               <div class="btn btn-info">Xem thêm</div>
+          </a>
+     </div>
 </div>

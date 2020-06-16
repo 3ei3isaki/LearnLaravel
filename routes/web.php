@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Http\Middleware\AuthRequire;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,7 @@ Route::group(['prefix' => 'auth'], function () {
     Route::get('/logout', 'AuthController@logout')->name('logout');
 });
 
-Route::group(['prefix' => 'admin'], function () {
+Route::prefix('admin')->middleware('authRequire')->group(function () {
 
 
     Route::get('/', 'AdminController@index')->name('admin');
@@ -56,8 +57,8 @@ Route::group(['prefix' => 'admin'], function () {
             ->name('adminNewsGetEdit')
             ->where(['id' => '[0-9]+']);
 
-        Route::put('/edit/{id}', 'AdminNewsController@postEdit')
-            ->name('adminNewsPostEdit')
+        Route::put('/edit/{id}', 'AdminNewsController@putEdit')
+            ->name('adminNewsPutEdit')
             ->where(['id' => '[0-9]+']);
 
 
@@ -73,15 +74,21 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/', 'AdminCategorysController@index')->name('adminCategorys');;
 
 
-        Route::get('/add', 'AdminCategorysController@add')->name('adminCategorysAdd');
+        Route::get('/add', 'AdminCategorysController@getAdd')->name('adminCategorysGetAdd');
+
+        Route::post('/add', 'AdminCategorysController@postAdd')->name('adminCategorysPostAdd');
 
 
-        Route::get('/edit/{id}', 'AdminCategorysController@edit')
-            ->name('adminCategorysEdit')
+        Route::get('/edit/{id}', 'AdminCategorysController@getEdit')
+            ->name('adminCategorysGetEdit')
+            ->where(['id' => '[0-9]+']);
+
+        Route::put('/edit/{id}', 'AdminCategorysController@putEdit')
+            ->name('adminNewsPutEdit')
             ->where(['id' => '[0-9]+']);
 
 
-        Route::get('/delete/{id}', 'AdminCategorysController@delete')
+        Route::delete('/delete/{id}', 'AdminCategorysController@delete')
             ->name('adminCategorysDelete')
             ->where(['id' => '[0-9]+']);
     });

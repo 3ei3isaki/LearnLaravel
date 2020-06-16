@@ -13,8 +13,8 @@
                <td style="vertical-align: middle;" class="text-center">{{ $item['id'] }}</td>
                <td style="vertical-align: middle; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">{{ $item['name'] }}</td>
                <td>
-                    <a href="categorys/delete/{{ $item['id'] }}" id="btnEditItem" class="btn btn-success">Sửa</a>
-                    <a href="categorys/edit/{{ $item['id'] }}" id="btnDeleteItem" class="btn btn-danger">Xóa</a>
+                    <a href="categorys/edit/{{ $item['id'] }}" id="btnEditItem" class="btn btn-success">Sửa</a>
+                    <button onclick="deleteCategorysItem(`{{ $item['id'] }}`)" id="btnDeleteItem" class="btn btn-danger">Xóa</button>
                </td>
           </tr>
           @endforeach

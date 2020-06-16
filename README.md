@@ -1,79 +1,77 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# Website tin tức xây dựng bằng Laravel Framework
+## MeiNews
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+> ### Sử dụng
+> - Yêu cầu
+>   + Xampp v3.2.2 trở lên
+>   + Composer
+>   + Thêm php của Xammp vào PATH
+> - Clone repo này về bỏ vào thư mục htdocs rồi làm theo các bước sau!
+>  1. Tạo 1 database mới
+>  2. Chạy CMD tại thư mục gốc của project
+>  3. cp .env.example .env
+>  4. Mở file .env và cầu hình DB_DATABASE= theo tên database vừa tạo
+>  5. composer install
+>  6. php artisan migrate
+>  7. Cấu hình vHost cùa apache trong Xampp
+>     - File `xampp\apache\conf\extra\httpd-vhosts`
+```
+<VirtualHost *:80>
+    DocumentRoot "D:/xampp/htdocs/LearnLaravel/public"
+    ServerName meinews.dev
+    <Directory "D:/xampp/htdocs/LearnLaravel/public">
+    </Directory>
+</VirtualHost>
+```
+> 8. Thêm dòng sau vào file host `C:\Windows\System32\drivers\etc\hosts`
+>    - `127.0.0.1 meinews.dev`
+> 9. Vào trình duyệt nhập URL `meinews.dev` chạy thử
+>    - Nếu báo lỗi thiều key thì chạy lệnh `php artisan key:generate`
+>10. Chạy lệnh `php artisan crawler:news` để lấy tin mới về Database từ API
 
-## About Laravel
+> Để vào được `/admin` cần đăng ký 1 tài khoản rồi vào `database` bảng `users` sửa trường `access` thành `1`
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+Route List
++--------+----------+-----------------------------+-----------------------+-------------------------------------------------------+-------------+
+| Domain | Method   | URI                         | Name                  | Action                                                | Middleware  |
++--------+----------+-----------------------------+-----------------------+-------------------------------------------------------+-------------+        
+|        | GET|HEAD | /                           | home                  | App\Http\Controllers\HomeController@index             | web         |
+|        | GET|HEAD | admin                       | admin                 | App\Http\Controllers\AdminController@index            | web         |        
+|        |          |                             |                       |                                                       | authRequire |        
+|        | GET|HEAD | admin/categorys             | adminCategorys        | App\Http\Controllers\AdminCategorysController@index   | web         |        
+|        |          |                             |                       |                                                       | authRequire |
+|        | POST     | admin/categorys/add         | adminCategorysPostAdd | App\Http\Controllers\AdminCategorysController@postAdd | web         |        
+|        |          |                             |                       |                                                       | authRequire |        
+|        | GET|HEAD | admin/categorys/add         | adminCategorysGetAdd  | App\Http\Controllers\AdminCategorysController@getAdd  | web         |        
+|        |          |                             |                       |                                                       | authRequire |        
+|        | DELETE   | admin/categorys/delete/{id} | adminCategorysDelete  | App\Http\Controllers\AdminCategorysController@delete  | web         |        
+|        |          |                             |                       |                                                       | authRequire |        
+|        | PUT      | admin/categorys/edit/{id}   | adminNewsPutEdit      | App\Http\Controllers\AdminCategorysController@putEdit | web         |
+|        |          |                             |                       |                                                       | authRequire |        
+|        | GET|HEAD | admin/categorys/edit/{id}   | adminCategorysGetEdit | App\Http\Controllers\AdminCategorysController@getEdit | web         |
+|        |          |                             |                       |                                                       | authRequire |        
+|        | GET|HEAD | admin/news                  | adminNews             | App\Http\Controllers\AdminNewsController@index        | web         |        
+|        |          |                             |                       |                                                       | authRequire |        
+|        | GET|HEAD | admin/news/add              | adminNewsGetAdd       | App\Http\Controllers\AdminNewsController@getAdd       | web         |        
+|        |          |                             |                       |                                                       | authRequire |        
+|        | POST     | admin/news/add              | adminNewsPostAdd      | App\Http\Controllers\AdminNewsController@postAdd      | web         |        
+|        |          |                             |                       |                                                       | authRequire |        
+|        | DELETE   | admin/news/delete/{id}      | adminNewsDelete       | App\Http\Controllers\AdminNewsController@delete       | web         |        
+|        |          |                             |                       |                                                       | authRequire |        
+|        | GET|HEAD | admin/news/edit/{id}        | adminNewsGetEdit      | App\Http\Controllers\AdminNewsController@getEdit      | web         |        
+|        |          |                             |                       |                                                       | authRequire |        
+|        | PUT      | admin/news/edit/{id}        | adminNewsPutEdit      | App\Http\Controllers\AdminNewsController@putEdit      | web         |        
+|        |          |                             |                       |                                                       | authRequire |        
+|        | GET|HEAD | api/user                    |                       | Closure                                               | api         |        
+|        |          |                             |                       |                                                       | auth:api    |        
+|        | POST     | auth/authenticate           | auth                  | App\Http\Controllers\AuthController@authenticate      | web         |        
+|        | GET|HEAD | auth/login                  | login                 | App\Http\Controllers\AuthController@login             | web         |        
+|        | GET|HEAD | auth/logout                 | logout                | App\Http\Controllers\AuthController@logout            | web         |        
+|        | GET|HEAD | news/category/{categoryId?} | categoryNews          | App\Http\Controllers\NewsController@category          | web         |        
+|        | GET|HEAD | news/{page?}                | news                  | App\Http\Controllers\NewsController@index             | web         |        
+|        | GET|HEAD | register                    | registerView          | App\Http\Controllers\RegisterController@index         | web         |        
+|        | POST     | register                    | register              | App\Http\Controllers\RegisterController@register      | web         |        
++--------+----------+-----------------------------+-----------------------+-------------------------------------------------------+-------------+ 
+```

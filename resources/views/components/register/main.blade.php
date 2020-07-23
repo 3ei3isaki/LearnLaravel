@@ -2,7 +2,7 @@
      <div class="row justify-content-center p-4">
           <div class="col-lg-6">
                <div class="display-4 text-center">Đăng Ký</div>
-               <form action="/LearnLaravel/public/register" class="bg-light rounded p-4 mt-4" method="post" style="box-shadow: 0 5px 15px -10px;">
+               <form action="/register" class="bg-light rounded p-4 mt-4" method="post" style="box-shadow: 0 5px 15px -10px;">
                     @csrf
                     @if ($errors->any())
                     @foreach ($errors->all() as $error)
